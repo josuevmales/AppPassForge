@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>PassForge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+
+        <h1>PassForge</h1>
+        <p>Generador de contraseñas</p>
+
+        <a href="/number">
+            <button class="btn">Generar por número</button>
+        </a>
+
+        <a href="/text">
+            <button class="btn secondary">Generar por texto</button>
+        </a>
+
+    </div>
+</div>
+
+</body>
+</html>

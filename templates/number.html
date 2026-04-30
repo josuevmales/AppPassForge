@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>PassForge - Número</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+
+        <h1>PassForge</h1>
+        <p>Generador por número</p>
+
+        <!-- 🔴 MENSAJE DE ERROR -->
+        {% if error %}
+            <p style="color: #f87171; margin-bottom: 10px;">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST" novalidate>
+            <input 
+                type="text" 
+                name="length" 
+                placeholder="Longitud (6 - 10)" 
+                maxlength="2"
+                oninput="limitInput(this)"
+                required
+            >
+            <button type="submit" class="btn">Generar contraseña</button>
+        </form>
+
+        {% if password %}
+        <div class="result-box">
+            <p id="password">{{ password }}</p>
+
+            <button onclick="copyPassword()" class="btn secondary">Copiar</button>
+        </div>
+        {% endif %}
+
+        <a href="/" class="back">← Volver</a>
+
+    </div>
+</div>
+
+<script>
+function copyPassword() {
+    const text = document.getElementById("password").innerText;
+    navigator.clipboard.writeText(text);
+    alert("Contraseña copiada 🔥");
+}
+
+// 🔥 CONTROL DE INPUT
+function limitInput(input) {
+    // Solo números
+    input.value = input.value.replace(/[^0-9]/g, '');
+
+    let value = parseInt(input.value);
+
+    // Máximo 10
+    if (value > 10) {
+        input.value = input.value.slice(0, -1)
+    }
+}
+</script>
+
+</body>
+</html>
