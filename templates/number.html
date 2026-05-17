@@ -22,7 +22,7 @@
             <input 
                 type="text" 
                 name="length" 
-                placeholder="Longitud (6 - 10)" 
+                placeholder="Longitud (8 - 14)" 
                 maxlength="2"
                 oninput="limitInput(this)"
                 required
@@ -55,12 +55,6 @@ function limitInput(input) {
     // Solo números
     input.value = input.value.replace(/[^0-9]/g, '');
 
-    let value = parseInt(input.value);
-
-    // Máximo 10
-    if (value > 10) {
-        input.value = input.value.slice(0, -1)
-    }
 }
 </script>
 

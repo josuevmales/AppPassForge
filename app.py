@@ -34,12 +34,12 @@ def number():
             length = int(length_input)
 
             # 3. Validar rango
-            if length < 6 or length > 10:
-                error = "La longitud debe estar entre 6 y 10"
+            if length < 8 or length > 14:
+                error = "La longitud debe estar entre 8 y 14"
 
+            # 4. Crea contraseña
             else:
-                # 4. Generar contraseña
-                password = generate_password_number(length)
+                password = generate_password_number(length) 
                 strength = check_password_strength(password)
 
     return render_template(
